@@ -1,9 +1,8 @@
-
 Breve descrição do grupo
 
-* Turno: [L]XX
-* Grupo: YY
+* Turno: [L]03
+* Grupo: 05
 * Alunos:
-    - Aluno1 upZZZZZ 
-    - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
+    - Gonçalo Martins up202108707
+    - Diogo Viana up202108803
+    - André Santos up202108658	
