@@ -21,7 +21,4 @@
 
 ## Ataques
 
-- item1
-- item2
-- item3
-- item4
+- "According to media reports, attacks so far have only been targeted and not widespread." (https://www.gdatasoftware.com/blog/2012/08/24036-cve-2012-4681-a-java-0-day-is-going-to-hit-big-time)
