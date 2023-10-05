@@ -25,3 +25,4 @@
 >
 >- After using the diff command, we can see there are no differences between the programs' outputs.
 >![diff](./images/image-6.png)
+
