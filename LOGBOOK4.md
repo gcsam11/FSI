@@ -31,3 +31,6 @@
 >- In Step 1, after compilling and running the code, it resulted in no actual output.
 >- Step 2 though was different. After changing `execve("/usr/bin/env", argv, NULL);` to `execve("/usr/bin/env", argv, environ);` we got the output of all the environment variables!
 
+>![](./images/image-7.png)
+>![](./images/image-8.png)
+
