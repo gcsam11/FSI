@@ -50,7 +50,9 @@ In this task, we will use the system() function instead of execve(), which means
 
 ## Task 5
 
->
+After doing this task we were surprised to see that LD_LIBRARY_PATH didn't print unlike MY_VAR and PATH.
+
 >![task5](./images/image-10.png)
+
 
 ## Task 6
