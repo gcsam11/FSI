@@ -50,7 +50,7 @@ In this task, we will use the system() function instead of execve(), which means
 
 ## Task 5
 
->
+> After altering altering the MY_VAR and LD_LIBRARY_PATH variables, we were suprised to find that the LD_LIBRARY_PATH variable does not print after running the program.
 >![task5](./images/image-10.png)
 
 ## Task 6
