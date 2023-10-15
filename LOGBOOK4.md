@@ -64,7 +64,6 @@ In this task, we will use the system() function instead of execve(), which means
 >![terminal](./images/image-11.png)
 
 
-##CTF
----
+## CTF
 
 >
