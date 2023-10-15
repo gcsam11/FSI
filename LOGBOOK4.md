@@ -61,7 +61,6 @@ In this task, we will use the system() function instead of execve(), which means
 - The ls.c program will use geteuid() to find out if we have root privileges:
 ![geteuid](./images/image-13.png)
 - Final result:
-
 ![terminal](./images/image-11.png)
 
 
