@@ -33,13 +33,16 @@ O resultado:
 
 #### Task 2.1 
 
-Acedemos ao site "www.seed-server.com" disponibilizado pelo container Docker e observámos que a *query* era frágil, uma vez que o input do utilizador não era verificado e executámos o seguinte código:
+Acedemos ao site "www.seed-server.com" disponibilizado pelo container Docker e executámos o seguinte código:
 
 ```sql
 SELECT id, name, eid, salary, birth, ssn, address, email, nickname, Password
 FROM credential
 WHERE name='admin'# and Password=’$hashed_pwd’
 ```
+
+Ou podemos fazer isto na página:
+![Alt text](./images/image8-8.png)
 
 Obtívemos assim os dados do administrador:
 
