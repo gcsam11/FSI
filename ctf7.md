@@ -54,6 +54,7 @@ We will now be analysing how _main.c_ behaviour works on _program_ (which is _ma
 ```bash
 checksec --file=program
 ```
+
 ![Alt text](./images/ctf7-1.png)
 
 We can see here that here that the binaries aren't randomize(is not a _PIE_, Position-Independent Executable), but there are canaries, which prevents buffer overflow attacks as they will be detected
@@ -63,7 +64,8 @@ Using that knowlegde, we can assume that we are going to use a _format string at
 When we run the program, whenever the function _load___flag_ it will put the flag into the the buffer which, as a global variable, will be stored in the heap. Using _dbg_ we can find out the memory address where the function return address. We will run in the console 
 ```Bash
 gdb program
-p load_flag # ```
+p load_flag # 
+```
 
 ![Alt text](./images/ctf7-2.png)
 
