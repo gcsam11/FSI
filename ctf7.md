@@ -1,8 +1,8 @@
 # Format Strings
 
-##First Flag
+## First Flag
 
-###File Analysis
+### File Analysis
 
 As good practice, we start off by investigating what we're being given. Therefore we be analysing what's inside "_main.c_":
 
@@ -47,7 +47,7 @@ if(0) {
     printf("\nDisqualified!\n");
 }
 ```
-###Execution Analysis
+### Execution Analysis
 
 We will now be analysing how _main.c_ behaviour works on _program_ (which is _main.c_ compilled) with the command:
 
@@ -90,7 +90,7 @@ p.interactive()
 
 Thus, the flag we get is **flag{a36ac6c2b6ecee59b102cf406c2e354d}**!
 
-##Second Flag
+## Second Flag
 
 Yet again, we are going to start off by running:
 
