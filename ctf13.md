@@ -37,7 +37,7 @@ When trying to look for which cipher suite was selected, we depared ourselves wi
 
 So to confirm which one was the selected one we clicked on the frame number 816 (Server Hello message) and scrolled down once again to the 'Cipher Suites' section, verifying that the one selected was "TLS_RSA_WITH_AES_128_CBC_SHA256", that being the <selected_cipher_suite>.
 
-![Image 5](/images/ctf13-ServerMessage_CipherSuite.png)
+![Image 5](/images/ctf13-ServerHelloMessage_CipherSuite.png)
 
 We decided then to click once again on the "Apply a display fiter..." bar and type in: "tls.record.content_type == 23 && frame.number > 814 && frame.number < 824" (814 because it's the frame_start and 824 because it's the last frame of that connection that uses the TLS protocol). The results of applying that filter were the frames number 820 and 821, and scrolling down to see their lengths, which were 80 and 1184, respectively, the total of their sum would be 80 + 1184 = 1264, that being the <total_encrypted_appdata_exchanged>.
 
