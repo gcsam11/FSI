@@ -17,6 +17,8 @@ We were also told that we needed to foccus on a specific TLS connection, more pr
 
 And so the first step was to search for the specific connection that we were supposed to foccus on, to do that we could click on the bar with the placeholder text "Apply a display filter..." and type the follwoing: "tls.record.content_type == 22 && tls.handshake.type == 1". After doing that, we clicked on the blue button with a right arrow on the right side of the bar, to proceed to apply the filter.
 
+![Image 1](/images/ctf13-1st_filter.png)
+
 After filtering the enormous ammount of connections we clicked on 'Find a packet' (magnifying glass icon on the top bar of Wireshark) and chose the option "Hex Value" and typed in "52:36:2c:11:ff:0e:a3:a0:00:e1:b4:8d:c2:d9:9e:04:c6:d0:6e:a1:a0:61:d5:b8:dd:bf:87:b0:01:74:5a:27". Then we clicked on the `Find` button.
 
 By doing so we found out the frame number of Client Hello message, that being the <frame_start>, since the Client Hello is, in fact, the first frame in the TLS handshake procedure in question.
