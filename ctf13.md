@@ -41,7 +41,15 @@ So to confirm which one was the selected one we clicked on the frame number 816 
 
 We decided then to click once again on the "Apply a display fiter..." bar and type in: "tls.record.content_type == 23 && frame.number > 814 && frame.number < 824" (814 because it's the frame_start and 824 because it's the last frame of that connection that uses the TLS protocol). The results of applying that filter were the frames number 820 and 821, and scrolling down to see their lengths, which were 80 and 1184, respectively, the total of their sum would be 80 + 1184 = 1264, that being the <total_encrypted_appdata_exchanged>.
 
+![Image 6](/images/ctf13-2nd_filter.png)
+
+![Image 7](/images/ctf13-ApplicationData_1st_Length.png)
+
+![Image 8](/images/ctf13-ApplicationData_2nd_Length.png)
+
 Since we already found out the <frame_end>, for the <size_of_encrypted_message> we just needed to scroll down to the "Length" section of that frame to find what it was.
+
+![Image 9](/images/ctf13-SizeOfEncryptedMessage.png)
 
 After doing that we had all the components we needed to rebuild the flag.
 
