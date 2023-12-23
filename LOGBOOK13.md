@@ -151,3 +151,62 @@ And for `8.8.8.8`:
 
 ## Task 4: Sniffing and-then Spoofing
 
+This task consisted in combining the sniffing and spoofing techniques. If the packet was an **ICMP echo request**, we need to reply with an **ICMP echo reply** packet:
+
+```python
+!#/usr/bin/env python3
+from scapy.all import *
+
+def send_reply(pkt):
+    if pk[ICMP].type != 8
+        return
+    ip = IP(src = pkt[IP].dst, dst = pkt[IP].src)
+    icmp = ICMP(type = 0, id = pkt[ICMP].id, seq = pkt[ICMP].seq)
+    data = pkt[Raw].load
+    reply = ip / icmp / data
+    send(reply, verbose = 0)
+
+pkt = sniff(iface='br-a8e50947a7ec', filter='icmp', prn=send_reply)
+```
+
+After that the guide told us to ping 3 distinct IP's:
+
+- 1.2.3.4
+
+When pinging 1.2.3.4 without the program, we were not receiving **ANY** packets.
+
+![Alt text](./images/image13-10.png)
+
+And pinging while running the program:
+
+![Alt text](./images/image13-11.png)
+
+By checking Wireshark, we saw that the packets were going through the attacker machine (10.9.0.1) and sending replies:
+
+![Alt text](./images/image13-12.png)
+
+Therefore, our program worked. 
+
+- 10.9.0.99
+
+When pinging 10.9.0.99 with or without the program, we were not receiving **ANY** packets.
+
+![Alt text](./images/image13-13.png)
+
+Because 10.9.0.99 is in the same Local Area Network as Host A, the packets did not go through the attacker machine.
+
+![Alt text](./images/image13-14.png)
+
+- 8.8.8.8
+
+Finally, by pinging 8.8.8.8 without the program, we received the packets.
+
+![Alt text](./images/image13-15.png)
+
+And with:
+
+![Alt text](./images/image13-16.png)
+
+Because 8.8.8.8 is Google's DNS and it is an actual existing host, it's normal that the packets go through the attacker machine. Therefore, it's also expected that Host A receives duplicaded packets.
+
+![Alt text](./images/image13-17.png)
