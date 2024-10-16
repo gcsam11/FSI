@@ -76,7 +76,7 @@ int main() {
 
 O output do lado do servidor foi o seguinte:
 
-![Alt text](./images/image7-1.png)
+![Alt text](../images/image7-1.png)
 
 Conclui-se então que a mensagem do endereço é `"A secret message"`.
 
@@ -102,7 +102,7 @@ int main() {
 
 O output do servidor:
 
-![Alt text](./images/image7-2.png)
+![Alt text](../images/image7-2.png)
 
 ### Task 3.B
 
@@ -122,5 +122,5 @@ int main() {
 
 Originando o seguinte output:
 
-![Alt text](./images/image7-3.png)
-![Alt text](./images/image7-4.png)
+![Alt text](../images/image7-3.png)
+![Alt text](../images/image7-4.png)

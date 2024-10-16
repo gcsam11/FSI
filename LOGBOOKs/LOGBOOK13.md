@@ -6,7 +6,7 @@ Our environment consists of 3 different machines, attacker, hostA and hostB. All
 
 After setting up the containers, we ran `ifconfig` and searched for the entry with **10.9.0.1** IP.
 
-![Alt text](./images/image13.png)
+![Alt text](../images/image13.png)
 
 We found the name of our network interface: **br-a8e50947a7ec**. 
 
@@ -41,11 +41,11 @@ $ ping 10.9.0.6
 
 With root privilege:
 
-![Alt text](./images/image13-1.png)
+![Alt text](../images/image13-1.png)
 
 Without:
 
-![Alt text](./images/image13-2.png)
+![Alt text](../images/image13-2.png)
 
 ### 1.1B: Filtering Packets
 
@@ -71,13 +71,13 @@ $ echo "MESSAGE" > /dev/tcp/10.9.0.6/23
 
 The result:
 
-![Alt text](./images/image13-3.png)
+![Alt text](../images/image13-3.png)
 
 * **Capture packets that come from or to go to a particular subnet.**
 
 For the final prompt, we need to use a **subnet**.
 
-![Alt text](./images/image13-4.png)
+![Alt text](../images/image13-4.png)
 
 
 By applying the **255.255.255.0** netmask to the interface - 10.0.2.15 - we achieved **10.0.2.0/24**:
@@ -86,7 +86,7 @@ By applying the **255.255.255.0** netmask to the interface - 10.0.2.15 - we achi
 pkt = sniff(iface='enp0s3', filter='net 10.0.2.0/24', prn=print_pkt)
 ```
 
-![Alt text](./images/image13-5.png)
+![Alt text](../images/image13-5.png)
 
 ## Task 1.2: Spoofing ICMP Packets
 
@@ -106,11 +106,11 @@ packet = ip/ICMP()
 send(packet)
 ```
 
-![Alt text](./images/image13-6.png)
+![Alt text](../images/image13-6.png)
 
 We also opened Wireshark with root permissions and capture the packets.
 
-![Alt text](./images/image13-7.png)
+![Alt text](../images/image13-7.png)
 
 ## Task 3: Traceroute
 
@@ -143,11 +143,11 @@ print("Distance: ", a.ttl)
 
 The result for `10.9.0.5` was:
 
-![Alt text](./images/image13-8.png)
+![Alt text](../images/image13-8.png)
 
 And for `8.8.8.8`:
 
-![Alt text](./images/image13-9.png)
+![Alt text](../images/image13-9.png)
 
 ## Task 4: Sniffing and-then Spoofing
 
@@ -175,15 +175,15 @@ After that the guide told us to ping 3 distinct IP's:
 
 When pinging 1.2.3.4 without the program, we were not receiving **ANY** packets.
 
-![Alt text](./images/image13-10.png)
+![Alt text](../images/image13-10.png)
 
 And pinging while running the program:
 
-![Alt text](./images/image13-11.png)
+![Alt text](../images/image13-11.png)
 
 By checking Wireshark, we saw that the packets were going through the attacker machine (10.9.0.1) and sending replies:
 
-![Alt text](./images/image13-12.png)
+![Alt text](../images/image13-12.png)
 
 Therefore, our program worked. 
 
@@ -191,22 +191,22 @@ Therefore, our program worked.
 
 When pinging 10.9.0.99 with or without the program, we were not receiving **ANY** packets.
 
-![Alt text](./images/image13-13.png)
+![Alt text](../images/image13-13.png)
 
 Because 10.9.0.99 is in the same Local Area Network as Host A, the packets did not go through the attacker machine.
 
-![Alt text](./images/image13-14.png)
+![Alt text](../images/image13-14.png)
 
 - 8.8.8.8
 
 Finally, by pinging 8.8.8.8 without the program, we received the packets.
 
-![Alt text](./images/image13-15.png)
+![Alt text](../images/image13-15.png)
 
 And with:
 
-![Alt text](./images/image13-16.png)
+![Alt text](../images/image13-16.png)
 
 Because 8.8.8.8 is Google's DNS and it is an actual existing host, it's normal that the packets go through the attacker machine. Therefore, it's also expected that Host A receives duplicaded packets.
 
-![Alt text](./images/image13-17.png)
+![Alt text](../images/image13-17.png)

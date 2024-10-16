@@ -8,7 +8,7 @@
 
 We were given a ciphered text and a python file which gave us the most common 1-gram, 2-grams and 3-grams in the text.
 
-![Alt text](./images/image10-1.png)
+![Alt text](../images/image10-1.png)
 
 By analizing the most common letters, bi-grams and trigrams in the english alphabet, we swapped the ciphers for what we thought were the correct letters.
 For example:
@@ -21,7 +21,7 @@ tr 'ytn' 'THE' < ciphertext.txt > out.txt
 
 Every y in the text was swapped to a T, t for an H and n for an E.
 
-![Alt text](./images/image10-2.png)
+![Alt text](../images/image10-2.png)
 
 We then saw that the most common letters in the english alphabet were an E and a T, which we already had. The next letter was an A and the third most common letter in the text was a v. We found out that there were some lonely v's in the text, so A made sense and we swapped again.
 
@@ -31,7 +31,7 @@ tr 'v' 'A' < out.txt > out1.txt
 
 From now on it was a matter of seeing the most common letters and swapping. For example, when he had swapped the I's and found the third most common bigram in the text started with I (`Iu` was showing up), we searched the most common bigrams and saw that `in` was the third most common bigram in the language, so we swapped again.
 
-![Alt text](./images/image10-3.png)
+![Alt text](../images/image10-3.png)
 
 ```
 tr 'u' 'N' < out1.txt > out.txt
@@ -136,15 +136,15 @@ $ openssl enc -ciphertype -e -in plain.txt -out cipher.txt -K 001122334455667788
 
 Swapping `-ciphertype` with `-aes-128-cbc`, the output is:
 
-![Alt text](./images/image10-4.png)
+![Alt text](../images/image10-4.png)
 
 For `-bf-cbc`:
 
-![Alt text](./images/image10-5.png)
+![Alt text](../images/image10-5.png)
 
 And for `-aes-128-cfb`:
 
-![Alt text](./images/image10-6.png)
+![Alt text](../images/image10-6.png)
 
 ### Task 3: Encryption Mode – ECB vs. CBC
 
@@ -165,7 +165,7 @@ cat header body > new.bmp
 ```
 
 And the result was:
-![Alt text](./images/image10-7.png)
+![Alt text](../images/image10-7.png)
 
 We can assume what the figures on the original picture were, but not their colors.
 
@@ -179,7 +179,7 @@ openssl enc -aes-128-cbc -e -in pic_original.bmp -out p3.bmp -K 0011223344556677
 
 And then changed the header with the same commands as earlier (with p3 instead of p2) and this is the result:
 
-![Alt text](./images/image10-8.png)
+![Alt text](../images/image10-8.png)
 
 It's not possible to derive any information about the original picture from this.
 
@@ -187,12 +187,12 @@ It's not possible to derive any information about the original picture from this
 
 Now we will do the same to a picture of our choice. This is the original picture:
 
-![Alt text](./images/image10-9.png)
+![Alt text](../images/image10-9.png)
 
 Encrypted with ECB:
 
-![Alt text](./images/image10-10.png)
+![Alt text](../images/image10-10.png)
 
 And CBC:
 
-![Alt text](./images/image10-11.png)
+![Alt text](../images/image10-11.png)

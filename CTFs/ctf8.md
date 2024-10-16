@@ -34,4 +34,4 @@ The executed query would look like this:
 
 The result of these inputs:
 
-![Alt text](./images/imagectf8-1.png)
+![Alt text](../images/imagectf8-1.png)

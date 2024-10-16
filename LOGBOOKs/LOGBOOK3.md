@@ -1,5 +1,4 @@
-#Trabalho realizado na Semana #3
----
+# Trabalho realizado na Semana #3
 
 - Dando Log In no website, fizemos o percurso de Main Page -> Shop -> Wordpress Hosting -> Reviews. Ai vimos que a vulnerabilidade muito provavelmente iria ter a haver com os plugins.
 - Voltando para Wordpress Hosting, fomos agora para Additional Information. Aqui vimos que o website tem o plugin WooComerce que se encontra na versão 5.7.1.

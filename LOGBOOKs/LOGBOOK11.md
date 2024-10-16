@@ -35,15 +35,15 @@ openssl rsa -in ca.key -text -noout
 
 CA: TRUE means it's a real CA certificate.
 
-![Alt text](./images/image11.png)
+![Alt text](../images/image11.png)
 
 The issuer and subject fields are the same, so it's a self-signed certificate.
 
-![Alt text](./images/image11-1.png)
+![Alt text](../images/image11-1.png)
 
 Here you can see a part of the key cryptography file:
 
-![Alt text](./images/image11-2.png)
+![Alt text](../images/image11-2.png)
 
 ## Task 2 - Generating a Certificate Request for Your Web Server
 
@@ -60,7 +60,7 @@ $ openssl ca -config openssl.cnf -policy policy_anything -md sha256 -days 3650 -
 
 The following image contains the contents in the `server.crt` file:
 
-![Alt text](./images/image11-3.png)
+![Alt text](../images/image11-3.png)
 
 We uncommented the copy_extensions line in the `openssl.cnf` file and ran the following code:
 
@@ -70,7 +70,7 @@ $ openssl x509 -in server.crt -text -noout
 
 Which showed that the certificate all website variations:
 
-![Alt text](./images/image11-4.png)
+![Alt text](../images/image11-4.png)
 
 ## Task 4 - Deploying Certificate in an Apache-Based HTTPS Website
 
@@ -88,11 +88,11 @@ We copied the `server.ctf` and `server.key` to the `volumes` folder and changed 
 ```
 We started the apache server in the container shell we opened earlier and got this in the `https://www.bank32.com`.
 
-![Alt text](./images/image11-5.png)
+![Alt text](../images/image11-5.png)
 
 As we can see, connection is not safe, so we need to add our CA certificate to the browser's authorities in `About -> Preferences -> Privacy -> Certificates -> View Certificates -> Authorities -> Import`.
 
-![Alt text](./images/image11-6.png)
+![Alt text](../images/image11-6.png)
 
 ## Task 5 - Launching a Man-In-The-Middle-Attack
 
@@ -100,7 +100,7 @@ We changed the server config so that `www.example.com` was shown with the previo
 
 By restarting the apache service the website alerted us of potential risks.
 
-![Alt text](./images/image11-7.png)
+![Alt text](../images/image11-7.png)
 
 ## Task 6 - Launching a Man-In-The-Middle-Attack with a Compromised CA
 
@@ -115,4 +115,4 @@ We also modified the `bank32_apache_ssl.conf` file again, this time with the `ex
 
 When restarting the apache server and going to `https://www.example.com` we can verify that the connection is secure.
 
-![Alt text](./images/image11-8.png)
+![Alt text](../images/image11-8.png)

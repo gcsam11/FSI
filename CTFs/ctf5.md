@@ -58,7 +58,7 @@ r.sendline(b"justtryingtocauseabufferoverlowflag.txt")
 ```
 Running our script, we got the following output:
 
-![Alt text](./images/image-5-1.png)
+![Alt text](../images/image-5-1.png)
 
 
 ## 2nd flag
@@ -138,5 +138,5 @@ r.sendline(b"justtryingtocauseabufferoverflow\x24\x23\xfc\xfeflag.txt")
 
 Executing the exploit gave us the following output:
 
-![Alt text](./images/image-5-2.png)
+![Alt text](../images/image-5-2.png)
 
