@@ -1,6 +1,6 @@
 # Computer Security Fundamentals
 
-This repository contains the activities solved for the FSI course 1st Semester - 23/24 at @FEUP
+This repository contains the activities solved for the FSI course 1st Semester - 23/24 @FEUP
 
 * Turno: [L]03
 * Grupo: 05
